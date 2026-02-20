@@ -5,6 +5,7 @@ import Carousel from "react-bootstrap/Carousel";
 import Login from "./LoginForm";
 import SignupForm from "./SignupForm";
 import ComplaintPage from "./ComplaintPage";
+import imp from "../Images/imp.png";
 
 function HomePages() {
   const navigate = useNavigate();
@@ -151,10 +152,10 @@ function HomePages() {
 
             <Carousel.Item>
               <img
-                className="carousel-image"
-                src="https://img.freepik.com/free-vector/tracking-location-concept-illustration_114360-7864.jpg"
-                alt="Tracking"
-              />
+  className="carousel-image"
+  src={imp}
+  alt="Tracking"
+/>
               <Carousel.Caption>
                 <h3>Real-Time Issue Tracking</h3>
               </Carousel.Caption>
