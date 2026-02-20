@@ -50,6 +50,9 @@ function HomePages() {
     setShowComplaintPopup(false);
   };
 
+  // Check if any popup is showing
+  const isAnyPopupOpen = showLoginPopup || showSignupPopup || showComplaintPopup;
+
   return (
     <div className="home-container">
       {/* Login Popup */}
@@ -70,7 +73,7 @@ function HomePages() {
         />
       )}
 
-      {/* Complaint Popup */}
+      {/* Complaint Popup - Hide all page content when any popup is open */}
       {showComplaintPopup && (
         <ComplaintPage 
           isPopup={true}
@@ -78,7 +81,8 @@ function HomePages() {
         />
       )}
 
-      {/* ===== HEADER ===== */}
+      {/* ===== HEADER - Hidden when any popup is open ===== */}
+      {!isAnyPopupOpen && (
       <header className="home-header">
         <div className="home-logo">🏙️ City Voice</div>
 
@@ -98,8 +102,11 @@ function HomePages() {
           </button>
         </nav>
       </header>
+      )}
 
-
+      {/* ===== MAIN CONTENT - Hidden when any popup is open ===== */}
+      {!isAnyPopupOpen && (
+      <>
       {/* ===== HERO + CAROUSEL ===== */}
       <section className="hero-carousel">
 
@@ -170,6 +177,21 @@ function HomePages() {
       </section>
 
 
+      {/* ===== VIDEO SECTION ===== */}
+      <section className="video-section">
+        <video 
+          className="home-video" 
+          controls 
+          autoPlay 
+          muted 
+          loop
+        >
+          <source src={require("./VIDEO-2026-02-20-19-20-52.mp4")} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </section>
+
+
       {/* ===== ICON SECTION ===== */}
       <section className="icon-section">
 
@@ -237,9 +259,12 @@ function HomePages() {
         </div>
 
       </footer>
+      </>
+      )}
 
     </div>
   );
 }
 
 export default HomePages;
+
