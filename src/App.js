@@ -2,8 +2,9 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import HomePages from './Webpages/Homepages';
 import AboutUs from './Webpages/AboutUs';
-import Login from './Webpages/Login';
-import Signup from './Webpages/Signup';
+import Login from './Webpages/LoginForm';
+import Signup from './Webpages/SignupForm';
+import AdminDashboard from './Webpages/AdminDash.js/AdminDashboard';
 
 function App() {
   return (
@@ -19,6 +20,9 @@ function App() {
         {/* Login & Signup */}
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        
+        {/* Admin Dashboard */}
+        <Route path="/admin-dashboard" element={<AdminDashboard />} />
         
         {/* 404 Page - Catch all unmatched routes */}
         <Route path="*" element={<HomePages />} />
