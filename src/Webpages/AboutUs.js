@@ -3,129 +3,140 @@ import { Link } from 'react-router-dom';
 import './AboutUs.css';
 
 const AboutUs = () => {
+  const features = [
+    { icon: '📱', title: 'Easy Reporting', desc: 'Report issues with photos and location in seconds' },
+    { icon: '📍', title: 'Track Progress', desc: 'Monitor status of your reports in real-time' },
+    { icon: '⚡', title: 'Fast Response', desc: 'Get quick action on urgent civic issues' },
+    { icon: '🗺️', title: 'Interactive Map', desc: 'View all reported issues in your area' },
+    { icon: '📊', title: 'Data-Driven', desc: 'Help authorities make better decisions' },
+    { icon: '🔔', title: 'Stay Updated', desc: 'Get notifications on issue resolutions' },
+  ];
+
+  const stats = [
+    { num: '15K+', label: 'Issues Reported' },
+    { num: '12K+', label: 'Issues Resolved' },
+    { num: '8K+', label: 'Active Users' },
+    { num: '98%', label: 'Satisfaction Rate' },
+  ];
+
   return (
-    <div className="aboutus-page">
-      {/* Navigation Bar */}
+    <div className="about-page">
+      {/* Navigation */}
       <nav className="navbar">
-        <div className="nav-brand">
-          <Link to="/" className="nav-brand-link">
-            <span className="nav-logo">🏙️</span>
-            <span className="nav-name">CityVoice</span>
+        <div className="nav-container">
+          <Link to="/" className="nav-brand">
+            <div className="logo-box">
+              <span className="logo-icon">🏙️</span>
+            </div>
+            <span className="brand-name">CityVoice</span>
           </Link>
-        </div>
-        <div className="nav-links">
-          <Link to="/home" className="nav-link">Home</Link>
-          <Link to="/about-us" className="nav-link active">About Us</Link>
-          <Link to="/login" className="nav-link login-btn">Login</Link>
+          <div className="nav-menu">
+            <Link to="/home" className="nav-link">Home</Link>
+            <Link to="/about-us" className="nav-link active">About Us</Link>
+            <Link to="/login" className="nav-btn">Login</Link>
+          </div>
         </div>
       </nav>
 
-      {/* Hero Section */}
+      {/* Hero */}
       <section className="about-hero">
-        <div className="about-hero-content">
-          <h1>About <span className="highlight">CityVoice</span></h1>
-          <p>Empowering citizens to build better communities through transparent issue reporting and tracking.</p>
-        </div>
-      </section>
-
-      {/* Mission Section */}
-      <section className="mission-section">
-        <div className="container">
-          <h2 className="section-title">Our Mission</h2>
-          <p className="mission-text">
-            CityVoice is a smart public complaint and issue tracking system designed to bridge the gap between citizens and local authorities. 
-            We believe that every voice matters, and by providing a simple platform to report local issues, we can work together 
-            to create safer, cleaner, and more livable communities.
+        <div className="hero-bg"></div>
+        <div className="hero-content">
+          <h1 className="hero-title">
+            About <span className="gradient-text">CityVoice</span>
+          </h1>
+          <p className="hero-desc">
+            We're on a mission to bridge the gap between citizens and local authorities, 
+            making it easier to report and resolve civic issues for a better community.
           </p>
         </div>
       </section>
 
-      {/* Features Section */}
+      {/* Mission */}
+      <section className="mission-section">
+        <div className="container">
+          <div className="mission-card">
+            <div className="mission-icon">🎯</div>
+            <h2>Our Mission</h2>
+            <p>
+              CityVoice is a smart public complaint and issue tracking system designed to empower citizens. 
+              We believe every voice matters, and by providing a simple platform to report local issues, 
+              we can work together to create safer, cleaner, and more livable communities. Our platform 
+              enables transparent communication between residents and local authorities, ensuring that 
+              civic issues are addressed promptly and efficiently.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Features */}
       <section className="features-section">
-        <h2 className="section-title">Why Choose CityVoice?</h2>
-        <div className="features-grid">
-          <div className="feature-card">
-            <div className="feature-icon">📱</div>
-            <h3>Easy Reporting</h3>
-            <p>Report issues with just a few taps using our mobile-friendly platform</p>
+        <div className="container">
+          <div className="section-header">
+            <h2>Why Choose CityVoice?</h2>
+            <p>Powerful features to make civic reporting effortless</p>
           </div>
-          <div className="feature-card">
-            <div className="feature-icon">🔍</div>
-            <h3>Track Progress</h3>
-            <p>Monitor the status of your reported issues in real-time</p>
-          </div>
-          <div className="feature-card">
-            <div className="feature-icon">⚡</div>
-            <h3>Fast Response</h3>
-            <p>Our system ensures quick action on urgent community issues</p>
-          </div>
-          <div className="feature-card">
-            <div className="feature-icon">🗺️</div>
-            <h3>Interactive Map</h3>
-            <p>View reported issues in your area on our live map</p>
-          </div>
-          <div className="feature-card">
-            <div className="feature-icon">📊</div>
-            <h3>Data-Driven</h3>
-            <p>Help authorities make better decisions with aggregated issue data</p>
-          </div>
-          <div className="feature-card">
-            <div className="feature-icon">🔔</div>
-            <h3>Stay Updated</h3>
-            <p>Get notifications on issue status changes and resolutions</p>
+          <div className="features-grid">
+            {features.map((feature, index) => (
+              <div key={index} className="feature-card">
+                <div className="feature-icon">{feature.icon}</div>
+                <h3>{feature.title}</h3>
+                <p>{feature.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Stats Section */}
+      {/* Stats */}
       <section className="stats-section">
-        <div className="stats-grid">
-          <div className="stat-item">
-            <span className="stat-number">10,000+</span>
-            <span className="stat-label">Issues Reported</span>
-          </div>
-          <div className="stat-item">
-            <span className="stat-number">8,500+</span>
-            <span className="stat-label">Issues Resolved</span>
-          </div>
-          <div className="stat-item">
-            <span className="stat-number">5,000+</span>
-            <span className="stat-label">Active Users</span>
-          </div>
-          <div className="stat-item">
-            <span className="stat-number">24hrs</span>
-            <span className="stat-label">Avg Response Time</span>
+        <div className="container">
+          <div className="stats-grid">
+            {stats.map((stat, index) => (
+              <div key={index} className="stat-item">
+                <span className="stat-number">{stat.num}</span>
+                <span className="stat-label">{stat.label}</span>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* CTA */}
       <section className="cta-section">
-        <h2>Ready to Make a Difference?</h2>
-        <p>Join thousands of citizens who are already helping improve their communities</p>
-        <div className="cta-buttons">
-          <Link to="/signup" className="btn-primary">Sign Up Now</Link>
-          <Link to="/login" className="btn-secondary">Login</Link>
+        <div className="container">
+          <div className="cta-card">
+            <h2>Ready to Make a Difference?</h2>
+            <p>Join thousands of citizens who are already helping improve their communities</p>
+            <div className="cta-buttons">
+              <Link to="/signup" className="btn-primary">Get Started Free</Link>
+              <Link to="/login" className="btn-secondary">Login</Link>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Footer */}
       <footer className="footer">
         <div className="footer-content">
-          <div className="footer-top">
+          <div className="footer-main">
             <div className="footer-brand">
-              <span className="footer-logo">🏙️</span>
-              <span className="footer-name">CityVoice</span>
-              <p className="footer-tagline">Smart Public Complaint & Issue Tracking System</p>
+              <div className="logo-box">
+                <span className="logo-icon">🏙️</span>
+              </div>
+              <div>
+                <span className="brand-name">CityVoice</span>
+                <p className="footer-tagline">Smart Public Complaint & Issue Tracking System</p>
+              </div>
             </div>
             <div className="footer-links">
-              <div className="footer-column">
-                <h4>Quick Links</h4>
+              <div className="link-group">
+                <h4>Navigation</h4>
                 <Link to="/home">Home</Link>
                 <Link to="/about-us">About Us</Link>
                 <Link to="/login">Login</Link>
               </div>
-              <div className="footer-column">
+              <div className="link-group">
                 <h4>Legal</h4>
                 <Link to="/terms">Terms of Service</Link>
                 <Link to="/privacy">Privacy Policy</Link>
